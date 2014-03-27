@@ -16,7 +16,7 @@ namespace :db do
     Job.all.each do |job|
       puts "[DEBUG] uploading images for job #{job.id} of #{Job.last.id}"
       5.times do |n|
-        url = File.basename(Dir.glob(File.join(Rails.root, 'pamco', '*')).sample)
+        url = File.basename(Dir.glob(File.join(Rails.root, 'app/assets/images', '*')).sample)
         job.images.create!(url: url)
       end
     end
